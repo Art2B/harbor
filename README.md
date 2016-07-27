@@ -1,7 +1,11 @@
-# {{ appName }}
+# Harbor
 
-This is a script to make some magic happens between your server and your domain name. You setup a watched folder in which you're gonna upload your static website. Then, the {{ appName }} is gonna setup a virtual host for the apache server, and add a subdomain to this app.
--> Note to myself, improve this
+This is a script to make some magic happens between your server and your domain name. 
+
+Quick & easy steps: 
+    - You setup a watched folder in which you're gonna upload your static website.
+    - Harbor is gonna setup a virtual host for the apache server, and add a subdomain to the domain name each time you create a new folder in your watched folder
+    - After few minutes (DNS Propagation), you site will be accessible at http://folderName.domain.extansion
 
 ## Requirement
     - Needs an Apache server
@@ -12,7 +16,10 @@ This is a script to make some magic happens between your server and your domain 
 ## Install
 - `cp config.example.py config.py`
 - Fill with your infos
-- `python staging.py`
+- `python harbor.py`
+
+I recommend using [pm2](https://github.com/Unitech/pm2/) to run this script on your server with the command: `pm2 start harbor.py --interpreter python --name="Harbor"`
 
 # To do 
 - Add logs
+- Add pm2 config
